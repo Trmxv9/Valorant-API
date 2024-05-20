@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import {
   useState,
   useEffect,
@@ -17,6 +19,7 @@ interface Agent {
   description: string;
   displayIcon: string;
   background: string;
+  fullPortrait: string;
   backgroundGradientColors: string[];
   role: {
     uuid: string;
@@ -65,8 +68,7 @@ export default function Agents() {
   }, []);
 
   return (
-    <main className="flex flex-col min-h-screen p-6 md:p-12">
-     
+    <main className="flex flex-col min-h-screen p-6 md:p-12 mt-20">
       <div
         className={
           loading
@@ -112,10 +114,12 @@ export default function Agents() {
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
               }}
             >
-              <img
-                src={agent.displayIcon}
+              <Image
+                src={`${agent.displayIcon}`}
                 alt={`Foto do agente ${agent.displayName}`}
-                className="w-20 h-20 rounded-full mx-auto mb-4"
+                width={80}
+                height={80}
+                className="rounded-full mx-auto mb-4 bg-[#0f0f0fd2]"
               />
               <h2 className="text-xl font-semibold text-center">
                 {agent.displayName}
@@ -123,12 +127,26 @@ export default function Agents() {
 
               <hr className="w-48 h-1 mx-auto my-4  border-0 rounded dark:bg-blue-500" />
 
-              <p className="text-sm text-gray-200 bg-[#0f0f0fbd] p-2 rounded-sm">{agent.description}</p>
+              <p className="text-sm text-gray-200 bg-[#0f0f0fbd] p-2 rounded-sm">
+                {agent.description}
+              </p>
+
+              <div className="flex justify-center items-center mb-5">
+                <Image
+                  src={agent.fullPortrait}
+                  alt={agent.displayName}
+                  className="rounded-lg"
+                  width={300}
+                  height={300}
+                />
+              </div>
 
               <div className="mt-10 flex items-center">
-                <img
-                  src={agent.role.displayIcon}
-                  alt={agent.role.displayName}
+                <Image
+                  src={`${agent.role.displayIcon}`}
+                  alt={`${agent.role.displayName}`}
+                  width={80}
+                  height={80}
                   className="w-7 h-7 rounded-full mr-4"
                 />
                 <h2 className="text-lg font-semibold">
@@ -161,10 +179,13 @@ export default function Agents() {
                     ) => (
                       <li key={index} className="flex items-center mb-4">
                         {ability.displayIcon && (
-                          <img
+                          <Image
                             src={ability.displayIcon}
                             className="w-7 h-7 rounded-full mr-2"
                             alt="Ícone da habilidade"
+                            width={80}
+                            height={80}
+                            loading="lazy"
                           />
                         )}
                         {ability.displayIcon && ability.displayName && (

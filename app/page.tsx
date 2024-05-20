@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -8,10 +9,12 @@ export default function Home() {
         <p>Valorant Information Agents, Weapons and more</p>
       </div>
 
-      <img
-        src="https://valorant-api.com/assets/img/logo_transparent.png?v=1"
+      <Image
+        src="https://media.valorant-api.com/agents/1dbf2edd-4729-0984-3115-daa5eed44993/fullportrait.png"
         alt="Valorant API Logo"
-        className="w-[400px] h-[400px] animate-pulse"
+        className="animate-pulse"
+        width={600}
+        height={600}
         loading="lazy"
       />
 
