@@ -120,6 +120,10 @@ export default function Agents() {
                 width={80}
                 height={80}
                 className="rounded-full mx-auto mb-4 bg-[#0f0f0fd2]"
+                style={{
+                  width: "auto",
+                  height: "auto",
+                }}
               />
               <h2 className="text-xl font-semibold text-center">
                 {agent.displayName}
@@ -138,6 +142,10 @@ export default function Agents() {
                   className="rounded-lg"
                   width={300}
                   height={300}
+                  style={{
+                    width: "auto",
+                    height: "auto",
+                  }}
                 />
               </div>
 
@@ -148,6 +156,10 @@ export default function Agents() {
                   width={80}
                   height={80}
                   className="w-7 h-7 rounded-full mr-4"
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                  }}
                 />
                 <h2 className="text-lg font-semibold">
                   {agent.role.displayName}
@@ -186,6 +198,10 @@ export default function Agents() {
                             width={80}
                             height={80}
                             loading="lazy"
+                            style={{
+                              width: "30px",
+                              height: "30px",
+                            }}
                           />
                         )}
                         {ability.displayIcon && ability.displayName && (
